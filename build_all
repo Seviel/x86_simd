@@ -1,0 +1,11 @@
+opt_flag='-O3'
+
+g++ -mavx2 add_vector.cpp -o vec.out
+g++ -mavx2 add_vector.cpp -S -o vec.s
+g++ -mavx2 ${opt_flag} -DOPTIMIZE add_vector.cpp -o vec_opt.out
+g++ -mavx2 ${opt_flag} -DOPTIMIZE add_vector.cpp -S -o vec_opt.s
+
+g++ add_scalar.cpp -o scal.out
+g++ add_scalar.cpp -S -o scal.s
+g++ ${opt_flag} -DOPTIMIZE add_scalar.cpp -o scal_opt.out
+g++ ${opt_flag} -DOPTIMIZE add_scalar.cpp -S -o scal_opt.s
