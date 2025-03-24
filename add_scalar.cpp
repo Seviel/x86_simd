@@ -33,9 +33,9 @@ int main()
     auto end = std::chrono::high_resolution_clock::now();
     auto time = std::chrono::duration_cast<std::chrono::microseconds>(end - start).count();
 
-std::string optimize;
+    std::string optimize;
 #ifdef OPTIMIZE
-optimize = "O3 ";
+    optimize = "O3 ";
 #endif
 
     std::cerr << "Scalar " << optimize << "execution time: " << time << " us\n";
