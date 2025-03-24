@@ -16,9 +16,9 @@ int main()
 {
     std::srand(time(0));
 
-    static float array_a[ARRAY_SIZE];
-    static float array_b[ARRAY_SIZE];
-    static float array_c[ARRAY_SIZE];
+    float *array_a = (float *)aligned_alloc(64, ARRAY_SIZE * sizeof(float));
+    float *array_b = (float *)aligned_alloc(64, ARRAY_SIZE * sizeof(float));
+    float *array_c = (float *)aligned_alloc(64, ARRAY_SIZE * sizeof(float));
 
     for (int32_t i = 0; i < ARRAY_SIZE; ++i)
     {
