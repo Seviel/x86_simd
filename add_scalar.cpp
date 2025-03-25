@@ -1,8 +1,8 @@
 #include <iostream>
-#include <string>
 #include <chrono>
 
 constexpr int32_t ARRAY_SIZE = 67'108'864;
+constexpr int32_t VEC_SIZE = 32;
 
 static void __attribute__((noinline)) add_arrays(float *a, float *b, float *result)
 {
@@ -16,9 +16,9 @@ int main()
 {
     std::srand(time(0));
 
-    float *array_a = (float *)aligned_alloc(64, ARRAY_SIZE * sizeof(float));
-    float *array_b = (float *)aligned_alloc(64, ARRAY_SIZE * sizeof(float));
-    float *array_c = (float *)aligned_alloc(64, ARRAY_SIZE * sizeof(float));
+    float *array_a = (float *)aligned_alloc(VEC_SIZE, ARRAY_SIZE * sizeof(float));
+    float *array_b = (float *)aligned_alloc(VEC_SIZE, ARRAY_SIZE * sizeof(float));
+    float *array_c = (float *)aligned_alloc(VEC_SIZE, ARRAY_SIZE * sizeof(float));
 
     for (int32_t i = 0; i < ARRAY_SIZE; ++i)
     {
